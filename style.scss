@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #0e0e0e;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: wheat;
+}
+
+main {
+    width: 100%;
+}
+
+.view-1 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 4rem;
+
+    img {
+        width: 80%;
+        object-fit: cover;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+        text-align: center;
+        font-weight: 100;
+    }
+
+    p {
+        text-align: center;
+        font-weight: 100;
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin: 0.9rem 0;
+        opacity: 0.6;
+
+        br {
+            display: none;
+        }
+    }
+}
+
+.view-2 {
+    width: 100%;
+    padding: 4rem 3rem;
+    display: flex;
+    justify-content: center;
+
+    .marquee {
+        display: flex;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+
+        &::after {
+            content: "";
+            height: 100%;
+            width: 50%;
+            background-image: linear-gradient(to right, #0e0e0e, transparent);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+
+
+
+        .text {
+            display: flex;
+            gap: 3rem;
+            padding: 0 1.5rem;
+            animation: marquee 10s linear infinite both;
+
+            p {
+                font-size: 2rem;
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 4rem;
+
+    img {
+        width: 80%;
+        object-fit: cover;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        /* Adjusted for better scaling on mobile */
+        text-align: center;
+        font-weight: 100;
+    }
+
+    p {
+        text-align: center;
+        line-height: 1.6;
+        font-size: 1rem;
+        /* Adjusted for readability on smaller screens */
+        margin: 0.9rem 0;
+        opacity: 0.6;
+
+        br {
+            display: none;
+        }
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+/* Tablet and Desktop Styles */
+@media (min-width: 1020px) {
+    html {
+        font-size: clamp(16px, 1vw, 20px);
+    }
+
+     
+
+    .view-1 {
+        img {
+            width: 28%;
+            object-fit: cover;
+        }
+        h1 {
+            font-size: 8.5rem;
+        }
+
+        p {
+            font-size: 1.5rem;
+
+            br {
+                display: block;
+            }
+
+        }
+
+
+    }
+
+    .view-2{
+        .marquee{
+            width: 50%;
+        }
+    }
+
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+
+    section img {
+        width: 90%;
+        /* Makes the image larger for mobile screens */
+    }
+
+    section h1 {
+        font-size: 2rem;
+    }
+
+    section p {
+        font-size: 0.9rem;
+    }
+}
